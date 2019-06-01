@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
-import { Redirect } from 'react-router';
-import logo from './logo.svg';
 import Home from './pages/home';
 import About from './pages/about';
 import Top from './pages/top';
 import './App.css';
-import Square from './Square';
 
 class App extends Component {
 
