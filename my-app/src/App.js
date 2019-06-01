@@ -1,30 +1,42 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import { Redirect } from 'react-router';
 import logo from './logo.svg';
+import Home from './pages/home';
+import About from './pages/about';
+import Top from './pages/top';
 import './App.css';
 import Square from './Square';
 
 class App extends Component {
+
+  componentDidMount(){
+    document.title = "Tus viajes"
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to La pagina de Valentina</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <div>
-        <Square square={1}/>
-        <Square square={2}/>
-        <Square square={3}/>
-        <Square square={4}/>
-        <Square square={5}/>
-        </div>
-        <div>
-          <Square square={6}/>
-        </div>
+      <Router>
+      <div>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/topics">Top Trips</Link>
+          </li>
+        </ul>
+
+        <hr />
+
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/topics" component={Top} />
       </div>
+    </Router>
     );
   }
 }
